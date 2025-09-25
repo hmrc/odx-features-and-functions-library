@@ -1,0 +1,3 @@
+include:
+  - remote: 'https://gitlab.alm.corp.hmrc.gov.uk/cmdg-public-repos/pipeline-templates/odx-api-pipeline-templates/-/raw/Production/packages/pipeline-defaults.yml'
+  - remote: 'https://gitlab.alm.corp.hmrc.gov.uk/cmdg-public-repos/pipeline-templates/odx-api-pipeline-templates/-/raw/Production/packages/features-and-functions.yml'

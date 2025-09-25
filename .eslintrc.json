@@ -1,0 +1,68 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",               // Base set of recommended rules
+    "plugin:react/recommended",         // React specific linting rules
+    "plugin:@typescript-eslint/recommended", // TypeScript linting rules
+    "plugin:prettier/recommended"       // Add this line to integrate Prettier properly
+  ],
+  "parser": "@typescript-eslint/parser", // Use TypeScript parser
+  "parserOptions": {
+    "project": "./tsconfig.json",       // Specify path to tsconfig.json
+    "ecmaVersion": 2020,                // Allow parsing of modern ECMAScript features
+    "sourceType": "module",             // Allow ECMAScript modules
+    "extraFileExtensions": [".css", ".html"] // Allow parsing of .css and .html files
+  },
+  "plugins": [
+    "react",                            // React plugin
+    "prettier"                          // Ensure Prettier plugin is included
+  ],
+  "globals": {
+    "PCore": "readonly" // Declare global variables
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the React version
+    },
+    "import/resolver": {
+      "typescript": {} // Resolve TypeScript paths
+    }
+  },
+  "rules": {
+    // TypeScript rules
+    "@typescript-eslint/no-unused-vars": "error",   // Error on unused vars
+    "@typescript-eslint/no-explicit-any": "warn",   // Warn on any type usage
+
+    // React-specific rules
+    "react/prop-types": "off",                   // Disable prop-types rule (not needed with TypeScript)
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".ts"] }], // Allow JSX in TS/TSX files only
+
+    // Other useful JS rules
+    "no-console": "warn",                        // Warn on console.log usage
+    "no-alert": "warn",                          // Warn on alert usage
+    "no-var": "error",                           // Enforce let/const over var
+    "prefer-const": "error",                     // Prefer const where possible
+
+    // Prettier compatibility
+    "prettier/prettier": "error"                // Ensure Prettier is followed
+  },
+  "ignorePatterns": [
+    "src/**/*.css",      // Ignore CSS files
+    "src/**/*.html",     // Ignore HTML files
+    "src/**/*.png"       // Ignore PNG files
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off" // You can enable this if you want explicit return types
+      }
+    },
+    {
+      "files": ["*.jsx", "*.tsx"],
+      "rules": {
+        "react/react-in-jsx-scope": "off"  // React 17+ doesn't require React in scope
+      }
+    }
+  ]
+}

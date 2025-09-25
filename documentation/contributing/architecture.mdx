@@ -1,0 +1,29 @@
+# Application architecture
+
+The HMRC ODX Features and Functions library is evolving, and while its structure may change, a consistent enough pattern has emerged to guide file organisation.
+
+```console
+    src
+    ├── FeatureName
+    │   ├── utils
+    │   │   └── helpers.ts
+    │   ├── README.md
+    │   ├── FeatureFile.ts
+    │   ├── FeatureFile.tsx
+    │   └── index.ts
+    └── helpers
+        └── helper.ts
+    test
+    ├── FeatureName
+    │   └── FeatureFile.test.tsx
+    └── integration
+        └── FeatureName.integration.test.tsx
+```
+
+  - **src/FeatureName/utils/**: Contains helper functions used across feature files.
+  - **src/FeatureName/README**: Guide for the purpose of the feature and instructions on how to implement.
+  - **src/FeatureName/FeatureFile**: Files with feature logic may be `.ts` or `.tsx` depending on the file content. There can be as many as necessary.
+  - **src/FeatureName/index.ts**: Expose functionalities for easy importing elsewhere.
+  - **src/helpers/**: Contains helper functions that need accessed at a global level.
+  - **test/FeatureName/**: Contains unit tests for a given feature or function file.
+  - **test/integration/FeatureName/**: Contains integration tests for a given feature or function.
