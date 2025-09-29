@@ -1,0 +1,16 @@
+node_modules/
+node_modules
+dist
+storybook-static
+jest-stare
+coverage
+types
+package-lock.json
+test-results/
+docs/
+*.log
+*output.*
+yalc/
+yalc.sig
+.vscode
+gitlab-ci.yml

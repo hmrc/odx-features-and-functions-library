@@ -1,0 +1,23 @@
+# Publishing locally
+
+You may wish to test a feature or function within an application. You can publish the latest version of the library locally to do this.
+
+### 1. Install yalc
+
+If you do not already have [yalc](https://www.npmjs.com/package/yalc) installed, then you can install it by running `npm i yalc -g`. The global flag is optional, but it ensures that you do not need to install it across multiple repositiories.
+
+### 2. Generate dist folder
+
+Within HMRC ODX Features and Functions, you will need to generate a dist folder with the most up to date version of your work. This is what will be available to a consuming application. Run `npm build prod:ps`. You will see the dist folder appear in the file explorer when this completes running. If the command fails to run, check for any failing tests.
+
+### 3. Publish
+
+Publish with `yalc publish`
+
+### 4. In the consuming application
+
+Within the application you have chosen for testing, if this is the first time you are implementing HMRX ODX Features and Functions then you need to run `yalc add hmrc-odx-features-and-functions`. A `.yalc` folder will be generated with the package files and when inspecting the `package.json` dependencies, you will see listed: `"hmrc-odx-features-and-functions": "file:.yalc/hmrc-odx-features-and-functions"`.
+
+The package is now available for use. If you make any changes within this repository that you wish to see reflected in the consuming application, you will need to repeat steps 2 and 3. Within the consuming application, you simply need to run `yalc update`.
+
+To remove the package, run `yalc remove hmrc-odx-features-and-functions`.
