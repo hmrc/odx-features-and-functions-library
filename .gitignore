@@ -13,3 +13,4 @@ docs/
 yalc/
 yalc.sig
 .vscode
+gitlab-ci.yml
